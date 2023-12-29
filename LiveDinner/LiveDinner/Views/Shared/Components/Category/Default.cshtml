@@ -1,0 +1,44 @@
+﻿@model IList<Product>
+@using LiveDinner.Utilities;
+
+<div class="menu-box">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="heading-title text-center">
+                    <h2 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Thực Đơn Đặc Biệt</h2>
+                    <p style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Những món ăn đặc biệt của nhà hàng chúng tôi</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row inner-menu-box">
+            <div class="col-1">
+            </div>
+
+            <div class="col-10">
+                <div class="tab-content" id="v-pills-tabContent">
+                    <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                        <div class="row">
+                            @foreach (var item in Model)
+                            {
+                                <div class="col-lg-4 col-md-6 special-grid drinks">
+                                    <div class="gallery-single fix">
+                                        <img src="@item.Image" class="img-fluid" alt="Image">
+                                        <div class="why-text">
+                                            <h4>@item.ProductName </h4>
+                                            <p>@item.Description</p>
+                                            <h5> @item.Price VND</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-1">
+            </div>
+        </div>
+    </div>
+</div>

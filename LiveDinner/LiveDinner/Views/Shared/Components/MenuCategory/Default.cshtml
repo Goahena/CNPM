@@ -1,0 +1,18 @@
+﻿@model IList<Category>
+@using LiveDinner.Utilities;
+
+<div>
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item dropdown">
+            <a style="padding-left:20px" class="active nav-link dropdown-toggle" href="#" data-toggle="dropdown">Thực đơn</a>
+            <div class="dropdown-menu" aria-labelledby="dropdown-a">
+                @foreach (var item in Model.OrderBy(n => n.MenuOrder))
+                {
+                    var id = item.CategoryID;
+                    <a style="padding:8px 86px;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" class="dropdown-item" href="/Product/CategorySearch/?categoryId=@id">
+                        @item.CategoryName</a>
+                }
+                </div>
+            </li>
+        </ul>
+    </div>

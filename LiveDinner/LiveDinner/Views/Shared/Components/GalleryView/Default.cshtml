@@ -1,0 +1,26 @@
+﻿@model IList<Gallery>
+
+<div class="gallery-box">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="heading-title text-center">
+					<h2 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Thư viện ảnh</h2>
+					<p style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Nơi lưu giữ những khoảnh khắc tuyệt vời cùng của hàng chúng tôi</p>
+				</div>
+			</div>
+		</div>
+		<div class="tz-gallery">
+			<div class="row">
+				@foreach (var img in Model.Where(m => m.Status == true).OrderBy(n => n.OrderBy))
+        {
+				<div class="col-sm-12 col-md-4 col-lg-4">
+					<a class="lightbox" href="@img.ImageUrl">
+							<img class="img-fluid" src="@img.ImageUrl" alt="@img.ImageName">
+					</a>
+				</div>
+		}	
+			</div>
+		</div>
+	</div>
+</div>

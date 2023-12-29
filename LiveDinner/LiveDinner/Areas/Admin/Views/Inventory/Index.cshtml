@@ -1,0 +1,85 @@
+﻿@using LiveDinner.Models;
+@model IList<Inventory>
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            Danh sách hàng tồn kho 
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Trang chủ</a></li>
+            <li><a href="#">Quản lý kho</a></li>
+            <li class="active">Danh sách</li>
+        </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box">
+                    <div class="box-header">
+                    </div><!-- /.box-header -->
+                    <div class="box-body">
+                        <table class="table table-bordered">
+                            <tr>
+                                <th class="col-1 text-center">#</th>
+                                <th class="col-2 text-center">Tên sản phẩm</th>
+                                <td class="col-1 text-center">Số lượng</td>
+                                <td class="col-2 text-center">Ngày thêm vào</td>
+                                <td class="col-1 text-center">Giá mỗi sản phẩm</td>
+                                <td class="col-2 text-center">Ngày hết hạn</td>
+                                <th class="col-1 text-center">Trạng thái</th>
+                                <th class="col-1 text-center">Mô tả</th>
+                                <th class="col-1 text-center">Chức năng</th>
+                            </tr>
+                            @foreach (var item in Model)
+                            {
+                                string st = "";
+                                if (item.Status == true)
+                                {
+                                    st = "Còn hàng";
+                                }
+                                else
+                                {
+                                    st = "Hết hàng";
+                                };
+                                <tr>
+                                    <th class="text-center" scope="row">@item.InventoryID</th>
+                                    <td class="text-center">@item.InventoryName</td>
+                                    <td class="text-center">@item.Quantity</td>
+                                    <td class="text-center">@item.DateAdded</td>
+                                    <td class="text-center">@item.Price</td>
+                                    <td class="text-center">@item.ExpiryDate</td>
+                                    <td class="text-center">@st</td>
+                                    <td class="text-center">@item.Description</td>
+                                    <td class="text-center">
+                                        <a asp-area="Admin" asp-controller="Inventory" asp-action="Edit"
+                                           asp-route-id="@item.InventoryID" class="btn btn-primary btn-sm"
+                                           title="Sửa nội dung sản phẩm"><i class="fa fa-fw fa-pencil"></i></a>
+                                        <a asp-area="Admin" asp-controller="Inventory" asp-action="Delete"
+                                           asp-route-id="@item.InventoryID" class="btn btn-primary btn-sm"
+                                           title="Xóa thông tin sản phẩm"><i class="fa fa-fw fa-times"></i></a>
+                                    </td>
+                                </tr>
+                            }
+                        </table>
+                    </div><!-- /.box-body -->
+                    <div class="box-footer clearfix">
+                        <ul class="pagination pagination-sm no-margin pull-right">
+                            <li><a href="#">&laquo;</a></li>
+                            <li><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">&raquo;</a></li>
+                        </ul>
+                    </div>
+                </div><!-- /.box -->
+            </div>
+        </div>
+    </section><!-- /.content -->
+</div><!-- /.content-wrapper -->

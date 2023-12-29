@@ -1,0 +1,52 @@
+﻿@model IList<LiveDinner.Models.Post>
+@using LiveDinner.Utilities;
+
+
+<!-- Start All Pages -->
+<div class="all-page-title page-breadcrumb">
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Blog</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End All Pages -->
+<!-- Start blog -->
+<div class="blog-box">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="heading-title text-center">
+                    <h2>Blog</h2>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                string url = Functions.TitleSlugGeneration("Post", item.Title, item.PostID);
+                <div class="col-lg-4 col-md-6 col-12">
+                    <div class="blog-box-inner">
+                        <div class="blog-img-box">
+                            <img class="img-fluid" src="@item.Images" alt="">
+                        </div>
+                        <div class="blog-detail">
+                            <h4>@item.Title</h4>
+                            <ul>
+                                <li><span>Post by @item.Author</span></li>
+                                <li>|</li>
+                                <li><span>@item.CreatedDate.ToString()</span></li>
+                            </ul>
+                            <p>@item.Abstract </p>
+                            <a class="btn btn-lg btn-circle btn-outline-new-white" href="/@url">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+<!-- End blog -->

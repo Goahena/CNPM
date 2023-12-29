@@ -1,0 +1,95 @@
+﻿@model LiveDinner.Models.Contact
+
+
+<!-- End All Pages -->
+<!-- Start Contact -->
+<div style="padding:50px"></div>
+<div class="contact-box">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="heading-title text-center">
+					<h2>Liên hệ</h2>
+					<p>Hãy để lại lời nhắn cho chúng tôi</p>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-12">
+				<form method="post">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="form-group">
+								<input type="text" asp-for="Name" class="form-control" placeholder="Nhập họ và tên" required data-error="Hãy nhập họ và tên bạn">
+								<div class="help-block with-errors"></div>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<input type="text" asp-for="Title" placeholder="Nhập tiêu đề" class="form-control" required data-error="Hãy nhập tiêu đề">
+								<div class="help-block with-errors"></div>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<input type="email" asp-for="Email" placeholder="Nhập địa chỉ Email" class="form-control" required data-error="Hãy nhập Email">
+								<div class="help-block with-errors"></div>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<input type="number" asp-for="Phone" placeholder="Nhập số điện thoại" class="form-control" required data-error="Hãy nhập số điện thoại">
+								<div class="help-block with-errors"></div>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<textarea class="form-control" asp-for="Message" placeholder="Nhập tin nhắn" rows="4" data-error="Hãy nhập tin nhắn" required></textarea>
+								<div class="help-block with-errors"></div>
+							</div>
+							<div class="submit-button text-center">
+								<button class="btn btn-common" type="submit">Gửi Tin Nhắn</button>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- End Contact -->
+<!-- Start Contact info -->
+<div class="contact-imfo-box">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4 arrow-right">
+				<i class="fa fa-volume-control-phone"></i>
+				<div class="overflow-hidden">
+					<h4>Phone</h4>
+					<p class="lead">
+						+01 123-456-4590
+					</p>
+				</div>
+			</div>
+			<div class="col-md-4 arrow-right">
+				<i class="fa fa-envelope"></i>
+				<div class="overflow-hidden">
+					<h4>Email</h4>
+					<p class="lead">
+						yourmail@gmail.com
+					</p>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<i class="fa fa-map-marker"></i>
+				<div class="overflow-hidden">
+					<h4>Location</h4>
+					<p class="lead">
+						800, Lorem Street, US
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- End Contact info -->

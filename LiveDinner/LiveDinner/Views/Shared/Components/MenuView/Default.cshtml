@@ -1,0 +1,24 @@
+﻿@using LiveDinner.Utilities;
+@model IList<Menu>
+
+@foreach (var menu in Model.Where(m => m.Levels == 1).OrderBy(n => n.MenuOrder))
+{
+    var Pid = menu.MenuId;
+    var Smenu = Model.Where(p => p.ParentID == Pid).OrderBy(p => p.MenuOrder).ToList();
+    @if (Smenu.Count == 0)
+    {
+        <li class="nav-item"><a class="nav-link" href="/@menu.ControllerName">@menu.MenuName</a></li>
+    }
+    else
+    {
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">Pages</a>
+            <div class="dropdown-menu" aria-labelledby="dropdown-a">
+                @foreach (var smn in Smenu)
+                {
+                    <a class="dropdown-item" href="/@menu.ControllerName/@menu.ActionName">@smn.MenuName</a>
+                }
+            </div>
+        </li>
+    }
+}

@@ -1,0 +1,26 @@
+﻿@using LiveDinner.Areas.Admin.Models
+@model IList<AdminMenu>
+<ul class="sidebar-menu">
+    <li class="header">Bảng điều khiển</li>
+    @foreach (var item in Model.Where(m => m.ItemLevel == 1).OrderBy(n => n.ItemOrder))
+    {
+        var Pid = item.AdminMenuID;
+        var Smenu = Model.Where(p => p.ParentLevel == Pid).OrderBy(p => p.ItemOrder).ToList();
+
+        <li class="treeview">
+            <a href="#">
+                <i class="fa fa-share"></i> <span>@item.ItemName</span>
+                <i class="fa fa-angle-left pull-right"></i>
+            </a>
+            <ul class="treeview-menu">
+                @foreach (var smn in Smenu)
+                {
+                    <li><a href="/Admin/@smn.ControllerName/@smn.ActionName"><i class="fa fa-circle-o"></i> @smn.ItemName</a></li>
+                }
+            </ul>
+        </li>
+    }
+        <li><a href="/">Trở về trang</a></li>
+</ul>
+
+<script src="~/admin/plugins/jQuery/jQuery-2.1.3.min.js"></script>

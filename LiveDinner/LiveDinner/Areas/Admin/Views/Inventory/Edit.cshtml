@@ -1,0 +1,80 @@
+﻿@model LiveDinner.Models.Inventory;
+@using LiveDinner.Utilities;
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            Quản lý hàng tồn kho
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Trang chủ</a></li>
+            <li><a href="#">Quản lý hàng tồn kho</a></li>
+            <li class="active">Chỉnh sửa</li>
+        </ol>
+    </section>
+    <!-- left column -->
+    <div class="col-md-12">
+        <!-- general form elements -->
+        <div class="box box-primary">
+            <div class="box-header">
+            </div><!-- /.box-header -->
+            <!-- form start -->
+            <form role="form" method="post" asp-action="Edit">
+                <div asp-validation-summary="All"></div>
+                <div class="box-body">
+                    <div class="form-group">
+                        <input type="text" class="form-control" asp-for="InventoryID" type="hidden">
+                        <label asp-for="InventoryName">Tên menu</label>
+                        <input asp-for="InventoryName" type="text" class="form-control" placeholder="Tên hàng hóa">
+                        
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label asp-for="Quantity">Số lượng</label>
+                            <input type="number" class="form-control mb-3" asp-for="Quantity" placeholder="Số lượng" />
+                            
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Price">Số tiền</label>
+                            <input type="number" class="form-control mb-3" asp-for="Price" placeholder="Số tiền trên mỗi sản phẩm" />
+                            
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="DateAdded">Ngày nhập hàng</label>
+                            <input type="datetime-local" class="form-control mb-3" asp-for="DateAdded" placeholder="Ngày nhập hàng" />
+                            
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="ExpiryDate">Hạn sử dụng</label>
+                            <input type="datetime-local" class="form-control mb-3" asp-for="ExpiryDate" placeholder="Hạn sử dụng" />
+                            
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Description">Mô tả</label>
+                            <input type="text" class="form-control mb-3" asp-for="Description" placeholder="Mô tả" />
+                            
+                        </div>
+                        <div class="form-group mt-5 mb-5">
+                            <label>
+                                @Html.CheckBox("Status", true)
+                                Còn hàng
+                            </label>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-lg btn-primary p-2"><i class="bi bi-file-plus-fill"></i>Lưu</button>
+                    <a class="btn btn-lg btn-warning p-2 mr-5" href="javascript:history.back()">Quay lại</a>
+                </div>
+            </form>
+
+        </div><!-- /.box -->
+
+
+    </div><!--/.col (left) -->
+    <!-- right column -->
+</div>
+
+

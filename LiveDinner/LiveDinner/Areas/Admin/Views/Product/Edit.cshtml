@@ -1,0 +1,85 @@
+﻿@using LiveDinner.Utilities;
+@model LiveDinner.Models.Product
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            Tạo mới thực đơn
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Trang chủ</a></li>
+            <li><a href="#">Thực đơn</a></li>
+            <li class="active">Tạo mới</li>
+        </ol>
+    </section>
+    <!-- left column -->
+    <div class="col-md-12">
+        <!-- general form elements -->
+        <div class="box box-primary">
+            <!-- form start -->
+            <form asp-action="Edit" method="post">
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        <input type="text" class="form-control" asp-for="ProductID" type="hidden">
+                        <label asp-for="ProductName">Tên sản phẩm</label>
+                        <input type="text" class="form-control mb-3" asp-for="ProductName">
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label asp-for="Price">Giá tiền</label>
+                        <input type="text" class="form-control mb-3" asp-for="Price">
+                    </div>
+                    <div class="from-group col-md-12">
+                        <label class="control-label">Ảnh sản phẩm</label>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <button class="btn btn-success" type="button" onclick="openDialog()">Chọn ảnh</button>
+                            </div>
+                            <input type="text" class="form-control" asp-for="Image" id="file_input" aria-describedby="button-addon2">
+                        </div>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label asp-for="Description">Mô tả sản phẩm</label>
+                        <textarea asp-for="Description" class="form-control"></textarea>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label asp-for="Information">Mô tả sản phẩm</label>
+                        <textarea asp-for="Information" class="form-control"></textarea>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <div class="alert-danger" asp-validation-summary="ModelOnly"></div>
+                        <label asp-for="CategoryID">Thuộc danh mục</label>
+                        <select asp-for="CategoryID"
+                                class="form-control"
+                                asp-items="@(new SelectList(ViewBag.List, "Value", "Text"))"></select>
+                    </div>
+                    <div class="form-group col-md-12 mt-3 mb-3">
+                        <label>
+                            @Html.CheckBox("IsActive", true)
+                            Hiển thị
+                        </label>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <input asp-for="CreatedDate" class="form-control" />
+                    </div>
+                </div>
+                <div class="col-md-5"></div>
+                <button type="submit" class="btn btn-lg btn-primary p-2"><i class="bi bi-file-plus-fill"></i>Lưu</button>
+                <a href="javascript:history.back()" class="btn btn-lg btn-warning p-2">Quay lại</a>
+            </form>
+
+        </div><!-- /.box -->
+
+
+    </div><!--/.col (left) -->
+    <!-- right column -->
+</div>
+
+
+@{
+    var summerNote = new LiveDinner.Areas.Admin.Models.SummerNote("#Contents");
+    <partial name="_SummerNote" model="summerNote" />
+}

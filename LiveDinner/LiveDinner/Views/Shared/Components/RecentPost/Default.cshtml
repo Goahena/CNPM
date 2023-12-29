@@ -1,0 +1,24 @@
+﻿@model IList<Post>
+
+<h3>Bài viết mới</h3>
+<div class="post-box-blog">
+    <div class="recent-post-box">
+        @foreach (var item in Model)
+        {
+            <div class="recent-box-blog">
+                <div class="recent-img">
+                    <img style="width: 80px; height: 80px; object-fit:cover" src="@item.Images" alt="">
+                </div>
+                <div class="recent-info">
+                    <ul>
+                        <li><i class="zmdi zmdi-account"></i>Đăng bởi: <span>@item.Author</span></li>
+                        <li>|</li>
+                        <li><i class="zmdi zmdi-time"></i>Thời gian: <span>@item.CreatedDate.ToString("hh:mm dd/MM/yy tt")</span></li>
+                    </ul>
+                    <h4>@item.Title</h4>
+                </div>
+            </div>
+        }
+
+    </div>
+</div>
