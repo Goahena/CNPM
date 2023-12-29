@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\CNPM\\LiveDinner\\LiveDinner\\LiveDinner.csproj": {}
+    "D:\\Học liệu\\Năm 4\\Công nghệ phần mềm\\DoAn\\CNPM\\LiveDinner\\LiveDinner\\LiveDinner.csproj": {}
   },
   "projects": {
-    "D:\\CNPM\\LiveDinner\\LiveDinner\\LiveDinner.csproj": {
+    "D:\\Học liệu\\Năm 4\\Công nghệ phần mềm\\DoAn\\CNPM\\LiveDinner\\LiveDinner\\LiveDinner.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\CNPM\\LiveDinner\\LiveDinner\\LiveDinner.csproj",
+        "projectUniqueName": "D:\\Học liệu\\Năm 4\\Công nghệ phần mềm\\DoAn\\CNPM\\LiveDinner\\LiveDinner\\LiveDinner.csproj",
         "projectName": "LiveDinner",
-        "projectPath": "D:\\CNPM\\LiveDinner\\LiveDinner\\LiveDinner.csproj",
+        "projectPath": "D:\\Học liệu\\Năm 4\\Công nghệ phần mềm\\DoAn\\CNPM\\LiveDinner\\LiveDinner\\LiveDinner.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "D:\\CNPM\\LiveDinner\\LiveDinner\\obj\\",
+        "outputPath": "D:\\Học liệu\\Năm 4\\Công nghệ phần mềm\\DoAn\\CNPM\\LiveDinner\\LiveDinner\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

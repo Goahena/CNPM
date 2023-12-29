@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "NRfkzZvdq13jed8YFjRwbhWtDEPULwBGi/TskKy8py6jWuz2GweGQNjCDXF2+CxGhcIF3lzi9KFjOwVmlK+3Qg==",
+  "dgSpecHash": "YN9qqG9h9dAXoEyrvEDWerpQYmABBg0XcqHfxHiReMvTYTI1dt+oZUJ+y5LR/kVuguBCYHPN9B2YnojARGkLDg==",
   "success": true,
-  "projectFilePath": "D:\\CNPM\\LiveDinner\\LiveDinner\\LiveDinner.csproj",
+  "projectFilePath": "D:\\Học liệu\\Năm 4\\Công nghệ phần mềm\\DoAn\\CNPM\\LiveDinner\\LiveDinner\\LiveDinner.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Admin\\.nuget\\packages\\elfinder.netcore\\1.3.6\\elfinder.netcore.1.3.6.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",

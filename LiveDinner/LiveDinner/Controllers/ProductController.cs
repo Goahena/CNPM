@@ -1,6 +1,7 @@
 ﻿using LiveDinner.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using static Microsoft.Extensions.Logging.EventSource.LoggingEventSource;
 
 namespace LiveDinner.Controllers
 {
@@ -13,7 +14,7 @@ namespace LiveDinner.Controllers
             _logger = logger;
             _context = context;
         }
-        public IActionResult Index()
+        public IActionResult Index(string keyword)
         {
             var list = _context.view_Pro_Cates
 				.Where(m => m.IsActive == true)
@@ -23,6 +24,13 @@ namespace LiveDinner.Controllers
                 return NotFound();
             }
             return View(list);
+        }
+        public IActionResult Search(string keyword)
+        {
+            var lowerKeyword = keyword.ToLower();
+            var result = _context.view_Pro_Cates.Where(p => p.ProductName.ToLower().Contains(lowerKeyword)).ToList();
+
+            return View("Index",result);
         }
         public IActionResult CategorySearch(int? CategoryID)
         {
@@ -46,20 +54,6 @@ namespace LiveDinner.Controllers
             }
             var product = _context.Products
                 .FirstOrDefault(m => (m.ProductID == id));
-            if (product == null)
-            {
-                return NotFound();
-            }
-            return View(product);
-        }
-        [HttpGet]
-        public IActionResult Search(string ProductName)
-        {
-            if (ProductName == null || ProductName == "")
-            {
-                return View("Index");
-            }
-            var product = _context.Products.Where(m => m.ProductName == ProductName).ToList();
             if (product == null)
             {
                 return NotFound();
