@@ -39,5 +39,12 @@ namespace LiveDinner.Controllers
             }
             return View(post);
         }
+        public IActionResult Search(string keyword)
+        {
+            var lowerKeyword = keyword.ToLower();
+            var result = _context.Posts.Where(p => p.Title.ToLower().Contains(lowerKeyword)).ToList();
+
+            return View("Index", result);
+        }
     }
 }

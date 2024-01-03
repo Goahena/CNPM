@@ -39,10 +39,7 @@
                             {
                                 <tr>
                                     <th class="text-center" scope="row">@item.MenuId</th>
-                                    <td>
-                                        <a asp-area="Admin" asp-controller="Menu" asp-action="Details"
-                                           asp-route-itemid="@item.MenuId" class="text-primary">@item.MenuName</a>
-                                    </td>
+                                    <th class="text-center" scope="row">@item.MenuName</th>
                                     <td class="text-center">@item.Levels</td>
                                     <td class="text-center">@item.ParentID</td>
                                     <td class="text-center">@item.MenuOrder</td>

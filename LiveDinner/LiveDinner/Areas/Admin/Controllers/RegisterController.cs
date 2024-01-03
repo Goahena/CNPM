@@ -28,7 +28,7 @@ namespace Startup.Areas.Admin.Controllers
             var check = _context.Users.Where(m => m.Email == user.Email).FirstOrDefault();
             if (check != null)
             {
-                Functions._MessageEmail = "Duplicate Email!";
+                Functions._MessageEmail = "Email đã tồn tại!";
                 return RedirectToAction("Index", "Register");
             }
             Functions._MessageEmail = string.Empty;
